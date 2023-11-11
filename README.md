@@ -14,7 +14,7 @@ This project is a Rust-based Lambda functions for serving HTML content. It uses 
 2. Navigate to the project directory.
 3. Build the project and start developing using Cargo:
    ```
-  cargo-lambda lambda watch
+   cargo-lambda lambda watch
    ```
 
 ## Project Structure
