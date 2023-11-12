@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: rust-cargolambda
+      BuildProperties:
+        Binary: hello_world_lambda
+    Properties:
+      Handler: main
+      Runtime: provided.al2
+      CodeUri: ./
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+
+  GoodMorningFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      BuildMethod: rust-cargolambda
+      BuildProperties:
+        Binary: good_morning_lambda
+    Properties:
+      Handler: main
+      Runtime: provided.al2
+      CodeUri: ./
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorldApi:
+          Type: Api
+          Properties:
+            Path: /good-morning
+            Method: get
+
+Globals:
+  Api:
+    Cors:
+      AllowMethods: "'GET, POST, PUT'"
+      AllowHeaders: "'Content-Type, X-Amz-Date, Authorization, X-Api-Key'"
+      AllowOrigin: "'*'"

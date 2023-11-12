@@ -1,6 +1,6 @@
 # Rust Lambda HTML Backend Template
 
-This project is a Rust-based Lambda functions for serving HTML content. It uses the crate cargo-lambda for a great developer experience. It is structured to work with AWS Lambda and utilizes HTML templates for content generation. There is also a nix flake with the dependencies. Recommend to use with nix-direnv.
+This project is a Rust-based Lambda functions for serving HTML content. It uses the crate cargo-lambda for a great developer experience. It is structured to work with AWS Lambda and utilizes HTML templates for content generation. There is a aws-sam template for easy deployment and building. There is also a nix flake with the dependencies. Recommend to use with nix-direnv.
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ This project is a Rust-based Lambda functions for serving HTML content. It uses 
 - `src/`: Contains the Rust source code for the Lambda function.
 - `templates/`: HTML templates used by the Lambda function.
 - `Cargo.toml`: The Rust project manifest file.
-- `.envrc`, `.gitignore`, `Cargo.lock`, `flake.lock`, `flake.nix`: Configuration and lock files.
+- `.envrc`, `.gitignore`, `Cargo.lock`, `flake.lock`, `flake.nix`, `samconfig.toml`, `template.yaml`: Configuration and lock files.
 
 ## Contributing
 
