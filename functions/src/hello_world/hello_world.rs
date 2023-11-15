@@ -1,5 +1,5 @@
 use askama::Template;
-use lambda_http::{run, service_fn, Body, Error, Request, RequestExt, Response};
+use lambda_http::{http::HeaderValue, run, service_fn, Body, Error, Request, RequestExt, Response};
 
 #[derive(Template)]
 #[template(path = "helloworld.html")]
@@ -23,6 +23,15 @@ pub async fn hello_world_handler(event: Request) -> Result<Response<Body>, Error
             let resp = Response::builder()
                 .status(200)
                 .header("content-type", "text/html")
+                .header("Access-Control-Allow-Origin", HeaderValue::from_static("*"))
+                .header(
+                    "Access-Control-Allow-Methods",
+                    HeaderValue::from_static("GET, POST, OPTIONS"),
+                )
+                .header(
+                    "Access-Control-Allow-Headers",
+                    HeaderValue::from_static("Content-Type"),
+                )
                 .body(html_content.into())
                 .map_err(Box::new)?;
             Ok(resp)
